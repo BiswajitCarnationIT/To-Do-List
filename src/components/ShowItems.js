@@ -40,7 +40,6 @@ const ShowItems = (props) => {
     return (
         <div>
             <h3>List of tasks </h3>
-            {/* <button onClick={fetchData}>See list</button> */}
         <table id="customers">
           <tr>
             <th>id</th>
@@ -53,17 +52,7 @@ const ShowItems = (props) => {
               {user.id ? <td>{user.id}</td> : <td>--</td>}
               {user.task ? <td>{user.task}</td> : <td>--</td>}
               {user.completed ? <td>{user.completed}</td> : <td>--</td>}
-              {/* {user.address ? <td>{user.address}</td> : <td>--</td>}
-              {
-                <td>
-                  <button onClick={() => handleDelete(user.id)}>Delete</button>
-                </td>
-              }
-              {
-                <td>
-                  <button onClick={() => handleUpdate(user)}>Update</button>
-                </td>
-              } */}
+              
             </tr>
           )):null}
         </table>

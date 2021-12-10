@@ -11,7 +11,6 @@ import { useHistory } from "react-router-dom";
 
 
 const UpdateItem = () => {
-    //let history = useHistory();
     const state = useSelector(state => state)
     console.log("stsate",state.list[1])
     const dispatch = useDispatch()
@@ -20,23 +19,14 @@ const UpdateItem = () => {
     console.log(id)
 
     const [completed, setCompleted] = useState("");
-    //console.log(Task)
     const handleSubmit = () => {
-      //alert(props.fullName)
       let article = {
          task:state.list,
         completed: completed.completed,
         
       };
       console.log(article);
-    //   axios
-    //     .get(`http://localhost:3000/to-do/${id.id}`, article)
-    //     .then((res) => {
-    //         console.log("res",res)
-    //     })
-    //     .catch((error) => {
-    //       console.error("There was an error!", error);
-    //     });
+    
       axios
         .put(`http://localhost:3000/to-do/${id.id}`, article)
         .then(() => {
@@ -45,28 +35,22 @@ const UpdateItem = () => {
         .catch((error) => {
           console.error("There was an error!", error);
         });
-      //this.history.push("/")  r-r-d
-  
-      //*** */
+     
       axios
         .get("http://localhost:3000/to-do")
         .then((response) => {
-          //data = response.data;
           console.log(response.data);
-          //props.handleFetchToRedux();
           dispatch(fetchList(response.data))
         })
         .catch((error) => {
           console.error("There was an error!", error);
         });
-      //history.push("/table");
     };
     const fetchData = () =>{
         axios
       .get(`http://localhost:3000/to-do`)
       .then((res) => {
         console.log(res.data);
-        //data = res.data;
         dispatch(fetchList(res.data))
         
       })
