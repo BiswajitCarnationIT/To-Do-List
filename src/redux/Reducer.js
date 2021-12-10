@@ -4,6 +4,7 @@ const initialState = {
     list : []
 }
 const taskReducer = (state = initialState, action) => {
+    console.log("reducer", action);
 switch (action.type) {
     
     case FETCH_LIST:
